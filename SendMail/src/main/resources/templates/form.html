@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  	<meta charset="utf-8">
+ 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Insert title here</title>
+</head>
+<body>
+	<h3>Form Send Mail</h3>
+	<p th:text=*{msg}></p>
+	<form th:action="@{/contact/send}" method="post" th:object="${contact}" novalidate="novalidate" >
+		<label>Gửi đến</label>
+		<input type="email" class="mail" placeholder="Nhập địa chỉ Email" th:field="*{email}" th:errorclass="field-error">
+		<label>Chủ đề</label>
+		<input type="text" class="subject" placeholder="Nhập chủ đề của bạn" th:field="*{subject}" th:errorclass="field-error">
+		<label>Nội dung</label>
+		<input type="text" class="content" placeholder="Nhập nội dung của bạn" th:field="*{content}" th:errorclass="field-error">
+		<button type="submit" class="btn">Gửi</button>
+	</form> 
+</body>
+</html>
