@@ -1,0 +1,166 @@
+#form{
+	margin-bottom: 20px;
+}
+#form1{
+  width: 720px;
+  height: 340px;
+  display: none;
+  background: #e9ecef;
+  z-index: 9999;
+  position: absolute;
+  top: 3px;
+  text-align: center;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+#form1 .tr:hover{
+	background: #BDBABA;
+}
+#form1 .active{
+	background: #343a40 !important;
+	color: white;
+}
+/*.show-mail{
+	width: 720px;
+	height: 150px;
+    background: #e9ecef;
+    overflow-y: scroll;
+    display: none;
+    z-index: 500;
+    position: absolute;
+    top: 125px;
+
+}
+.show-mail p{
+	margin: 0 20px 10px 20px;
+}
+.show-mail p:hover{
+	background: #C1BDBD;
+}*/
+::-webkit-scrollbar {
+      width: 15px;
+} 
+
+/*::-webkit-scrollbar-track {
+      background-color: #b46868;
+} /* the new scrollbar will have a flat appearance with the set background color */
+ 
+/*::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2); 
+}  this will style the thumb, ignoring the track 
+ */
+/*::-webkit-scrollbar-button {
+      background-color: #7c2929;
+}*/ /* optionally, you can style the top and the bottom buttons (left and right for horizontal bars) */
+ 
+/*::-webkit-scrollbar-corner {
+      background-color: black;
+}*/
+.close{
+	width: 100%;
+	text-align: right;
+}
+.close a{
+	text-decoration: none;
+	width: 100px;
+	height: 100px;
+	border-radius: 25px;
+	background: #C4C2C2;
+	padding: 5px 5px;
+}
+#checkbox{
+	margin-left: 20px;
+    margin-top: 10px;
+}
+.mail-top{
+	width: 100%;
+	height: 50px;
+}
+.check{
+	width: 150px;
+	height: 10px;
+	float: left;
+	text-align: left;
+}
+.filter{
+	width: 250px;
+	height: 10px;
+	float: right;
+}
+.fa-filter{
+	color: #B0B0B0;
+}
+/*test*/
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+/*  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;*/
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 10px 10px 10px 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  z-index: 9999;
+  position: absolute;
+  top: 140px;
+  width: 96%;
+  height: 200px;
+  overflow: auto;
+  display: none;
+}
+.box{
+	height: 50px;
+	border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+}
+
+#myUL li a{
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+
+#to{
+	background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+}

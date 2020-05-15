@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Quản Trị Marketing</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Page level plugin CSS-->
+  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+
+  <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+
+</head>
+
+<body id="page-top">
+
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+    <a class="navbar-brand mr-1" href="index.html">Quản Trị Marketing</a>
+
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <i class="fas fa-bars"></i>
+    </button>
+
+  </nav>
+
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="campaign.html">
+          <i class="fas fa-binoculars"></i>
+          <span>Chiến Dịch</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Email.html">
+          <i class="fas fa-envelope"></i>
+          <span>Email Marketing</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="SMS.html">
+          <i class="fas fa-sms"></i>
+          <span>SMS Marketing</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="tables.html">
+          <i class="fab fa-algolia"></i>
+          <span>Marketing Automation</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="formlh.html">
+          <i class="fas fa-align-left"></i>
+          <span>Form liên hệ</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="list.html">
+          <i class="fas fa-list"></i>
+          <span>Danh Sách Khách Hàng</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="tables.html">
+          <i class="far fa-calendar-alt"></i>
+          <span>Lịch Hẹn</span></a>
+      </li>
+    </ul>
+
+    <div id="content-wrapper">
+
+      <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#">Quản Trị Marketing</a>
+          </li>
+          <li class="breadcrumb-item active">Email Marketing</li>
+        </ol>
+        <div class="row">
+          <div class="col-2">
+            <div class="button">
+              <button type="button" class=" btn btn-primary" id="newMail"><i class="far fa-plus-square"></i></button>
+            </div>
+          </div>
+          <div class="col-8 text-left">
+              <form novalidate="novalidate" id ="smsForm"  method="post">
+                <h1>Gửi Mail Mới</h1>
+                <div class="form-group">
+                  <label for="title">Gửi Đến</label>
+                  <input type="text" id="to" onkeyup="myFunction()" autocomplete="off">
+
+                  
+                  <ul id="myUL">
+                    <div class="box">
+                      <div class="check">
+                          <input type="checkbox" name="" id="checkbox">
+                          <label for="checkbox">Chọn tất cả</label>
+                      </div>
+                      <div class="filter">
+                          <i class="fas fa-filter"></i>
+                          <select class="a">
+                            <option value="">--Chọn đối tượng--</option>
+                            <option value="">Khách hàng cũ</option>
+                            <option value="">Khách hàng mới--</option>
+                            
+                          </select>
+                      </div>
+                    </div>
+                    <li class="mail"><a href="#" ></a><a href="#" style="display: none;">,</a></li>
+                  </ul>
+                </div>
+                <!-- th:each="contact : ${contactt}" th:text="${contact.mail}" -->
+               
+                <div class="form-group">
+                  <label for="noidung">Nội Dung</label>
+                  <textarea class="form-control" id="message" rows="3"></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" id="send">Gửi</button>
+              </form>
+              <p id="messages">
+              <!-- <div id="form1" style="overflow-x:auto;">
+                <h1>Chọn Chiến Dịch</h1>
+                <table>
+                  <tr class="active">
+                    <th>ID</th>
+                    <th>Tên Chiến Dịch</th>
+                    <th>Nội Dung</th>
+                
+                  </tr>
+                  <tr  >
+                    <td th:text="${contact.machiendich}">01</td>
+                    <td class="td" th:text="${contact.namecd}"></td>
+                    <td class="td1" th:text="${contact.content}"></td>
+
+                  </tr>
+                  
+                </table>
+              </div> -->
+          </div>
+        </div>
+      <!-- Sticky Footer -->
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright © Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+  
+  <script type="text/javascript">
+    
+      /* function myFunction() {
+  		var input, filter, ul, li, a, i, txtValue;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          ul = document.getElementById("myUL");
+          li = ul.getElementsByTagName("li");
+          for (i = 0; i < li.length; i++) {
+              a = li[i].getElementsByTagName("a")[0];
+              txtValue = a.textContent || a.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  li[i].style.display = "";
+              } else {
+                  li[i].style.display = "none";
+              }
+          }
+      }; */
+      
+      var stompClient = null;
+
+      function setConnected(connected) {
+
+          if (connected) {
+              $("#conversation").show();
+          }
+          else {
+              $("#conversation").hide();
+          }
+          $("#messages").html("");
+      }
+
+      function connect() {
+          var socket = new SockJS('/gs-guide-websocket');
+          stompClient = Stomp.over(socket);
+          stompClient.connect({}, function (frame) {
+              setConnected(true);
+              console.log('Connected: ' + frame);
+              stompClient.subscribe('/topic/sms', function (sms) {
+                  showData(sms.body);
+              });
+          });
+      }
+
+      function disconnect() {
+          if (stompClient !== null) {
+              stompClient.disconnect();
+          }
+          setConnected(false);
+          console.log("Disconnected");
+      }
+
+      function showData(message) {
+          $("#messages").append("<tr><td>" + message + "</td></tr>");
+      }
+
+      function processForm(e) {
+          if (e.preventDefault) e.preventDefault();
+          var form = document.getElementById('smsForm');
+          var data = {};
+          for (var i = 0, ii = form.length; i < ii -1; ++i) {
+              var input = form[i];
+              if (input.id) {
+                  data[input.id] = input.value;
+              }
+          }
+          // construct an HTTP request
+          var xhr = new XMLHttpRequest();
+          xhr.open("post", "/sms", true);
+          xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+
+          // send the collected data as JSON
+          xhr.send(JSON.stringify(data));
+
+          return false;
+      }
+
+      $(function () {
+
+          let form = document.getElementById('smsForm');
+          if (form.attachEvent) {
+              form.attachEvent("submit", processForm);
+
+          } else {
+              form.addEventListener("submit", processForm);
+          }
+
+              // collect the form data while iterating over the inputs
+
+          });
+
+          connect();
+      
+  </script>
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+<!--   <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.js"></script> -->
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="js/demo/datatables-demo.js"></script>
+  <script src="js/main.js"></script>
+
+	
+
+</body>
+
+</html>
