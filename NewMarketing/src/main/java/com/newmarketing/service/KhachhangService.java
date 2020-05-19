@@ -24,4 +24,9 @@ public class KhachhangService {
 
 		return reponsitory.findByMadoituong(madoituong);
     }
+	
+	public KhachangEntity saveAll(KhachangEntity entity) {
+		
+		return reponsitory.save(entity);
+	}
 }

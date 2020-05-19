@@ -1,9 +1,13 @@
 package com.newmarketing.entity;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,10 +18,17 @@ public class TuvanEntity {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	int matuvan;
 	
-	String tencongty;
-	String tennguoilienhe;
+	@Column(name="namekh")
+	String namekh;
+//	@ManyToOne(cascade=CascadeType.ALL)
+//	@JoinColumn(name="madoituong")
+//	DoituongEntity madoituong;
+	
+	@Column(name="mail")
+	String mail;
+	@Column(name="sdt")
 	String sdt;
-	String email;
+	@Column(name="diachi")
 	String diachi;
 	public int getMatuvan() {
 		return matuvan;
@@ -25,17 +36,23 @@ public class TuvanEntity {
 	public void setMatuvan(int matuvan) {
 		this.matuvan = matuvan;
 	}
-	public String getTencongty() {
-		return tencongty;
+	public String getNamekh() {
+		return namekh;
 	}
-	public void setTencongty(String tencongty) {
-		this.tencongty = tencongty;
+	public void setNamekh(String namekh) {
+		this.namekh = namekh;
 	}
-	public String getTennguoilienhe() {
-		return tennguoilienhe;
+//	public DoituongEntity getMadoituong() {
+//		return madoituong;
+//	}
+//	public void setMadoituong(DoituongEntity madoituong) {
+//		this.madoituong = madoituong;
+//	}
+	public String getMail() {
+		return mail;
 	}
-	public void setTennguoilienhe(String tennguoilienhe) {
-		this.tennguoilienhe = tennguoilienhe;
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
 	public String getSdt() {
 		return sdt;
@@ -43,23 +60,21 @@ public class TuvanEntity {
 	public void setSdt(String sdt) {
 		this.sdt = sdt;
 	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
 	public String getDiachi() {
 		return diachi;
 	}
 	public void setDiachi(String diachi) {
 		this.diachi = diachi;
 	}
-	
+//	@Override
+//	public String toString() {
+//		return "TuvanEntity [matuvan=" + matuvan + ", namekh=" + namekh + ", madoituong=" + madoituong + ", mail="
+//				+ mail + ", sdt=" + sdt + ", diachi=" + diachi + "]";
+//	}
 	@Override
 	public String toString() {
-		return "TuvanEntity [matuvan=" + matuvan + ", tencongty=" + tencongty + ", tennguoilienhe=" + tennguoilienhe
-				+ ", sdt=" + sdt + ", email=" + email + ", diachi=" + diachi + "]";
+		return "TuvanEntity [matuvan=" + matuvan + ", namekh=" + namekh + ", mail=" + mail + ", sdt=" + sdt
+				+ ", diachi=" + diachi + "]";
 	}
-
+	
 }

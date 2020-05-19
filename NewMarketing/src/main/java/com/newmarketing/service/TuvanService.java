@@ -1,6 +1,7 @@
 package com.newmarketing.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,4 +24,14 @@ public class TuvanService {
 		
 		return reponsitory.save(entity);
 	}
+	
+	public Optional<TuvanEntity> getbyId(Integer id) {
+		return reponsitory.findById(id);
+	}
+	
+	public void remove(Integer matuvan) {
+		
+		reponsitory.deleteById(matuvan);
+	}
+
 }

@@ -18,7 +18,7 @@ import com.newmarketing.service.SMSService;
 import com.twilio.exception.ApiException;
 
 @Controller
-@RequestMapping("SendSms")
+//@RequestMapping("SendSms")
 //@RestController
 public class SMSController {
 
@@ -31,7 +31,7 @@ public class SMSController {
 
     private final String  TOPIC_DESTINATION = "/topic/sms";
 
-	@RequestMapping( method = RequestMethod.GET)
+	@RequestMapping(value="SendSms", method = RequestMethod.GET)
 	public String index() {
 		
 		return "SMS";

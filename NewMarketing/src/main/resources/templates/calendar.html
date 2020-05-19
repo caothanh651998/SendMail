@@ -22,7 +22,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="myFunction()">
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
@@ -135,7 +135,7 @@
           <li class="breadcrumb-item">
             <a href="#">Quản Trị Marketing</a>
           </li>
-          <li class="breadcrumb-item active">Danh sách khách hàng</li>
+          <li class="breadcrumb-item active">Danh sách lịch hẹn</li>
         </ol>
 
         <!-- DataTables Example -->
@@ -153,35 +153,27 @@
                 </form>
             </div>
             <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr class="text-center">
-                    <th scope="col">ID</th>
-                    <th scope="col">Tên Khách Hàng</th>
-                    <th scope="col">Số Điện Thoại</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Địa Chỉ</th>
-                    <th scope="col">Giới tính</th>
-                    <th scope="col">Đối tượng</th>
-                    <th scope="col">Tác Vụ</th>
-                  </tr>
-                </thead>
-                <tbody class="text-center">
-                  <tr th:each="list : ${list}">
-                    <th scope="row" th:text="${list.makhachhang}">1</th>
-                    <td th:text="${list.namekh}">Mark</td>
-                    <td th:text="${list.mail}">Mark</td>
-                    <td th:text="${list.sdt}">Otto</td>
-                    <td th:text="${list.diachi}">@mdo</td>
-                    <td th:text="${list.gioitinh}">@mdo</td>
-                    <td th:text="${list.madoituong.namedt}">@mdo</td>
-                    <td class="text-center"><a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-trash-alt"></i></a> </td>
-                  </tr>
-                </tbody>
-              </table>
+
+				<div class="card" style="width: 21rem; margin-right: 1.3rem; float: left;" th:each="tuvan : ${tuvan1}">
+				  <div class="card-body">
+				    <h5 class="card-title text-center" th:text="${tuvan.matuvan}"></h5>
+				    <p class="card-text" th:text=" 'Tên người liên hệ : '+ ${tuvan.namekh}"></p>
+				    <p class="card-text" th:text="'Số điện thoại : ' + ${tuvan.sdt}"></p>
+				    <p class="card-text" th:text="'Email : ' + ${tuvan.mail}"></p>
+				    <p class="card-text" th:text="'Địa chỉ : ' + ${tuvan.diachi}"></p>
+				    
+				    <a href="#" th:href="@{tuvan/{matuvan}/remove(matuvan=${tuvan.matuvan})}" class="btn btn-primary">Hoàn Thành</a>
+				    <!-- <form action="#" th:action="@{/save}" th:object="${tuvan}"  method="post" novalidate="novalidate">
+				    	<div class="form-group" style="display: none">
+		                  <input type="text" class="form-control" id="status" th:field="*{status}" value="">
+		                </div>
+		                <button type="submit" class="btn btn-primary">Hoàn Thành</button>
+				    </form> -->
+				  </div>
+				</div>
+				
             </div>
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
 
       </div>
@@ -244,5 +236,9 @@
   <script src="js/demo/datatables-demo.js"></script>
 
 </body>
-
+	<script type="text/javascript">
+		function myFunction() {
+			  document.getElementById("status").defaultValue = "close";
+		}
+	</script>
 </html>

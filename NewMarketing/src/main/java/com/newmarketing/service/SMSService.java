@@ -24,7 +24,7 @@ public class SMSService {
 //    private String FROM_NUMBER;
     
     public static final String ACCOUNT_SID = "ACeda08aff3f10ba9fbb5195bcb6e17da1";
-    public static final String AUTH_TOKEN = "d26ae9d8ee123622400f334c42c19c2b";
+    public static final String AUTH_TOKEN = "691fc85dc7ac5f752ba12519832fe299";
     public static final String FROM_NUMBER = "+14695072983";
 
     public void send(SMS sms) {

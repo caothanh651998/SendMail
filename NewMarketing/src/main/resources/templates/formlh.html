@@ -22,7 +22,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="myFunction()">
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
@@ -144,27 +144,33 @@
           <div class="col-8">
             <h1>Đăng Ký Tư Vấn Sẩn Phẩm</h1>
             <br>
-              <form action="#" th:action="@{/marketing/add}" th:object="${chiendich}"  method="post" novalidate="novalidate">
-                <div class="form-group">
+              <form action="#" th:action="@{/save}" th:object="${tuvan}"  method="post" novalidate="novalidate">
+                <!-- <div class="form-group">
                   <label for="send">Tên công ty</label>
-                  <input type="text" class="form-control" id="namect" th:field="*{}>
-                </div>
+                  <input type="text" class="form-control" id="namect" th:field="*{company}">
+                </div> -->
                 <div class="form-group">
-                  <label for="send">Người lên hệ chính</label>
-                  <input type="text" class="form-control" id="name" th:field="*{}>
+                  <label for="send">Họ Và Tên</label>
+                  <input type="text" class="form-control" id="name" th:field="*{namekh}">
                 </div>
                 <div class="form-group">
                   <label for="send">Số điện Thoại</label>
-                  <input type="text" class="form-control" id="phone" th:field="*{}>
+                  <input type="text" class="form-control" id="phone" th:field="*{sdt}">
                 </div>
                 <div class="form-group">
                   <label for="send">Email</label>
-                  <input type="email" class="form-control" id="email" th:field="*{}>
+                  <input type="email" class="form-control" id="email" th:field="*{mail}">
                 </div>
                 <div class="form-group">
                   <label for="address">Địa chỉ</label>
-                  <input type="text" class="form-control" id="address" th:field="*{}>
+                  <input type="text" class="form-control" id="address" th:field="*{diachi}">
                 </div>
+                <div class="form-group" style="display: none">
+                  <input type="text" class="form-control" id="madoituong" th:field="*{madoituong}" value="">
+                </div>
+                <!-- <div class="form-group" style="display: none">
+                  <input type="text" class="form-control" id="status" th:field="*{status}" value="">
+                </div> -->
                 <button type="submit" class="btn btn-primary">Đăng ký</button>
               </form>
           </div>
@@ -189,25 +195,6 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -224,7 +211,15 @@
 
   <!-- Demo scripts for this page-->
   <script src="js/demo/datatables-demo.js"></script>
+	
+	
+
 
 </body>
-
+	<script type="text/javascript">
+		function myFunction() {
+			  document.getElementById("madoituong").defaultValue = "3";
+			  document.getElementById("status").defaultValue = "open";
+		}
+	</script>
 </html>

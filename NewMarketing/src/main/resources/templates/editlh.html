@@ -22,7 +22,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="myFunction()">
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
@@ -135,58 +135,50 @@
           <li class="breadcrumb-item">
             <a href="#">Quản Trị Marketing</a>
           </li>
-          <li class="breadcrumb-item active">Danh sách khách hàng</li>
+          <li class="breadcrumb-item active">Form Liên Hệ</li>
         </ol>
-
-        <!-- DataTables Example -->
-        <div class="card mb-3">
-          <div class="card-header">
-            <i class="fas fa-table"></i>
-            Danh Sách khách hàng</div>
-          <div class="card-body">
-            <div class="col-12 ">
-                <form class="form-inline float-right">
-                  <div class="form-group mx-sm-3 mb-2">
-                    <input type="search" class="form-control" id="search" placeholder="Tìm kiếm khách hàng...">
-                  </div>
-                  <button type="submit" class="btn btn-primary mb-2">Tìm Kiếm</button>
-                </form>
-            </div>
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr class="text-center">
-                    <th scope="col">ID</th>
-                    <th scope="col">Tên Khách Hàng</th>
-                    <th scope="col">Số Điện Thoại</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Địa Chỉ</th>
-                    <th scope="col">Giới tính</th>
-                    <th scope="col">Đối tượng</th>
-                    <th scope="col">Tác Vụ</th>
-                  </tr>
-                </thead>
-                <tbody class="text-center">
-                  <tr th:each="list : ${list}">
-                    <th scope="row" th:text="${list.makhachhang}">1</th>
-                    <td th:text="${list.namekh}">Mark</td>
-                    <td th:text="${list.mail}">Mark</td>
-                    <td th:text="${list.sdt}">Otto</td>
-                    <td th:text="${list.diachi}">@mdo</td>
-                    <td th:text="${list.gioitinh}">@mdo</td>
-                    <td th:text="${list.madoituong.namedt}">@mdo</td>
-                    <td class="text-center"><a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-trash-alt"></i></a> </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+        <div class="row">
+          <div class="col-2">
+            
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          <div class="col-8">
+            <h1>Đăng Ký Tư Vấn Sẩn Phẩm</h1>
+            <br>
+              <form action="#" th:action="@{/save}" th:object="${tuvan}"  method="post" novalidate="novalidate">
+                <div class="form-group">
+                  <label for="send">Tên công ty</label>
+                  <input type="text" class="form-control" id="namect" th:field="*{company}">
+                </div>
+                <div class="form-group">
+                  <label for="send">Người lên hệ chính</label>
+                  <input type="text" class="form-control" id="name" th:field="*{name}">
+                </div>
+                <div class="form-group">
+                  <label for="send">Số điện Thoại</label>
+                  <input type="text" class="form-control" id="phone" th:field="*{phone}">
+                </div>
+                <div class="form-group">
+                  <label for="send">Email</label>
+                  <input type="email" class="form-control" id="email" th:field="*{email}">
+                </div>
+                <div class="form-group">
+                  <label for="address">Địa chỉ</label>
+                  <input type="text" class="form-control" id="address" th:field="*{address}">
+                </div>
+                <div class="form-group" style="display: none">
+                  <input type="text" class="form-control" id="madoituong" th:field="*{madoituong}" value="">
+                </div>
+                <div class="form-group" style="display: none">
+                  <select class="form-control" th:field="*{status}">
+                    	<option value="">Select Award Partner</option>
+                      	<option value="open">open</option>
+                      	<option value="close">close</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Lưu</button>
+              </form>
+          </div>
         </div>
-
-      </div>
-      <!-- /.container-fluid -->
-
       <!-- Sticky Footer -->
       <footer class="sticky-footer">
         <div class="container my-auto">
@@ -242,7 +234,15 @@
 
   <!-- Demo scripts for this page-->
   <script src="js/demo/datatables-demo.js"></script>
+	
+	
+
 
 </body>
-
+	<script type="text/javascript">
+		function myFunction() {
+			  document.getElementById("madoituong").defaultValue = "3";
+			  document.getElementById("status").defaultValue = "open";
+		}
+	</script>
 </html>
