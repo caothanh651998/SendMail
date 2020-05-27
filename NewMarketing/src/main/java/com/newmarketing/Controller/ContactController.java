@@ -8,6 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.newmarketing.entity.Contact;
 import com.newmarketing.service.ChiendichService;
@@ -40,13 +41,14 @@ public class ContactController {
 		return "Email";
 	}
 	@RequestMapping( value="send", method = RequestMethod.POST)
-	public String send(@ModelAttribute("contact") Contact contact , ModelMap modelMap) {
+	public String send(@ModelAttribute("contact") Contact contact , ModelMap modelMap, RedirectAttributes redirAttrs) {
 		
 		try {
 			String content = "<br> Chủ đề :" + contact.getSubject();
 			content += "<br> Nội dung :" +contact.getContent();
 			mailSerice.send("caothanh651998@gmail.com",contact.getEmail(), contact.getSubject(), content);
-			modelMap.put("msg", "Done!");
+			String  err= "Mail đã được gửi thành công đến : "+ contact.getEmail();
+			redirAttrs.addFlashAttribute("msg",  err );
 			System.out.println("Done!");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

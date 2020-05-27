@@ -20,16 +20,19 @@ public class TuvanEntity {
 	
 	@Column(name="namekh")
 	String namekh;
-//	@ManyToOne(cascade=CascadeType.ALL)
-//	@JoinColumn(name="madoituong")
-//	DoituongEntity madoituong;
 	
 	@Column(name="mail")
 	String mail;
+	
 	@Column(name="sdt")
 	String sdt;
+	
+	@Column(name="gioitinh")
+	String gioitinh;
+	
 	@Column(name="diachi")
 	String diachi;
+	
 	public int getMatuvan() {
 		return matuvan;
 	}
@@ -42,12 +45,6 @@ public class TuvanEntity {
 	public void setNamekh(String namekh) {
 		this.namekh = namekh;
 	}
-//	public DoituongEntity getMadoituong() {
-//		return madoituong;
-//	}
-//	public void setMadoituong(DoituongEntity madoituong) {
-//		this.madoituong = madoituong;
-//	}
 	public String getMail() {
 		return mail;
 	}
@@ -59,6 +56,12 @@ public class TuvanEntity {
 	}
 	public void setSdt(String sdt) {
 		this.sdt = sdt;
+	}
+	public String getGioitinh() {
+		return gioitinh;
+	}
+	public void setGioitinh(String gioitinh) {
+		this.gioitinh = gioitinh;
 	}
 	public String getDiachi() {
 		return diachi;
@@ -74,7 +77,7 @@ public class TuvanEntity {
 	@Override
 	public String toString() {
 		return "TuvanEntity [matuvan=" + matuvan + ", namekh=" + namekh + ", mail=" + mail + ", sdt=" + sdt
-				+ ", diachi=" + diachi + "]";
+				+ ", gioitinh=" + gioitinh + ", diachi=" + diachi + "]";
 	}
-	
+
 }
